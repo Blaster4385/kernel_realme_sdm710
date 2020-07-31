@@ -1439,11 +1439,11 @@ static void fg_cap_learning_post_process(struct fg_chip *chip)
 		chip->cl.final_cc_uah = div64_u64(chip->cl.final_cc_uah, 1000);
 	}
 
-	max_inc_val = chip->cl.learned_cc_uah
+	max_inc_val = (int64_t)chip->cl.learned_cc_uah
 			* (1000 + chip->dt.cl_max_cap_inc);
 	max_inc_val = div64_u64(max_inc_val, 1000);
 
-	min_dec_val = chip->cl.learned_cc_uah
+	min_dec_val = (int64_t)chip->cl.learned_cc_uah
 			* (1000 - chip->dt.cl_max_cap_dec);
 	min_dec_val = div64_u64(min_dec_val, 1000);
 
